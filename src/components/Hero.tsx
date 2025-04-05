@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center pt-16 relative bg-[url('/lovable-uploads/71604790-c5fd-41e2-ad56-1e20964fbbba.png')] bg-cover bg-center">
+    <section className="min-h-screen flex items-center pt-16 relative bg-[url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/70"></div>
       <div className="container-custom relative z-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
