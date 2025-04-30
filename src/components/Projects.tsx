@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Dream Space',
     description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game. Built the concept and team from scratch.',
-    image: '/Screenshot 2025-04-30 at 19.28.23.png',
+    image: '/Screenshot 2025-04-30 at 19.23.45.png',
     highlights: [
       'Assembled senior dev team within weeks',
       'Designed the prototype',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Skunkworks',
     description: 'Founded in 2019, Skunkworks focused on merge games for the casual market. Our hit game Merge Friends generated more than €4.5m in lifetime revenue.',
-    image: '/Screenshot 2025-04-30 at 19.23.45.png',
+    image: '/Screenshot 2025-04-30 at 19.28.23.png',
     highlights: [
       'Raised €5.8m in VC and government funding',
       'Grew team to 34 people',
