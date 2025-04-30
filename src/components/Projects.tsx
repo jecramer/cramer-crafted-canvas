@@ -64,11 +64,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
               <div className={`${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="rounded-lg shadow-md w-full h-auto object-cover"
-                />
+                <div className="w-full h-80 overflow-hidden rounded-xl shadow-md">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               
               <div className="space-y-4">
