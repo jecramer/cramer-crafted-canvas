@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Skunkworks',
     description: 'Founded in 2019, Skunkworks focused on merge games for the casual market. Our hit game Merge Friends generated more than €4.5m in lifetime revenue.',
-    image: '/lovable-uploads/7bc4dcbc-afc8-426d-bc82-f52d7fc7fcf0.png',
+    image: '/Screenshot 2025-04-30 at 19.23.45.png',
     highlights: [
       'Raised €5.8m in VC and government funding',
       'Grew team to 34 people',
