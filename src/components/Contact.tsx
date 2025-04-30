@@ -1,34 +1,37 @@
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { Linkedin, Mail, Phone } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real implementation, you would send this data to a server
     console.log('Form submitted:', formData);
-    
     toast({
       title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+      description: "Thanks for reaching out. I'll get back to you soon."
     });
-    
+
     // Reset form
     setFormData({
       name: '',
@@ -36,9 +39,7 @@ const Contact = () => {
       message: ''
     });
   };
-
-  return (
-    <section id="contact" className="section bg-white">
+  return <section id="contact" className="section bg-white">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="mb-4">Get In Touch</h2>
@@ -67,9 +68,7 @@ const Contact = () => {
                 <Phone className="h-6 w-6 mr-4 text-amber" />
                 <div>
                   <div className="font-medium">Phone</div>
-                  <a href="tel:+35844715487" className="text-muted-foreground hover:text-amber transition-colors">
-                    +358 44 7154 587
-                  </a>
+                  <a href="tel:+35844715487" className="text-muted-foreground hover:text-amber transition-colors">+358 ** **** *** (ask!)</a>
                 </div>
               </div>
               
@@ -77,12 +76,7 @@ const Contact = () => {
                 <Linkedin className="h-6 w-6 mr-4 text-amber" />
                 <div>
                   <div className="font-medium">LinkedIn</div>
-                  <a 
-                    href="https://www.linkedin.com/in/james-cramer/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-amber transition-colors"
-                  >
+                  <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-amber transition-colors">
                     linkedin.com/in/james-cramer
                   </a>
                 </div>
@@ -120,44 +114,21 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Name
                 </label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
+                <Input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email
                 </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <Input id="email" name="email" type="email" placeholder="Your email" value={formData.email} onChange={handleChange} required />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Message
                 </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Your message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  required
-                />
+                <Textarea id="message" name="message" placeholder="Your message" value={formData.message} onChange={handleChange} rows={5} required />
               </div>
               
               <Button type="submit" className="btn-amber w-full">
@@ -167,8 +138,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
