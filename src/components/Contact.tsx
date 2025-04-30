@@ -4,15 +4,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { Linkedin, Mail, Phone } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-  const {
-    toast
-  } = useToast();
+  
+  const { toast } = useToast();
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -23,10 +24,24 @@ const Contact = () => {
       [name]: value
     }));
   };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, you would send this data to a server
-    console.log('Form submitted:', formData);
+    
+    // Create email content with form data
+    const subject = `Contact from ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+    `;
+    
+    // Open email client with pre-filled information
+    window.location.href = `mailto:james.cramer@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Show success toast
     toast({
       title: "Message sent!",
       description: "Thanks for reaching out. I'll get back to you soon."
@@ -39,6 +54,7 @@ const Contact = () => {
       message: ''
     });
   };
+  
   return <section id="contact" className="section bg-white">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center mb-12">
