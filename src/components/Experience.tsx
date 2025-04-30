@@ -1,4 +1,3 @@
-
 import { ArrowRight } from 'lucide-react';
 const experiences = [{
   company: 'Get Lost',
@@ -34,7 +33,7 @@ const experiences = [{
   company: 'Next Games',
   role: 'Community & Marketing Manager',
   period: 'Sep 2014 - Aug 2016',
-  description: 'Developed creator strategy around liveops process.'
+  description: 'Developed creator strategy around liveops processes. Grew communities for both live games to more than 400k followers. Developed studio wide marketing processes from scratch.'
 }, {
   company: 'Grand Cru Games',
   role: 'Head of Support & Community',
