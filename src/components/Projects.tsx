@@ -7,7 +7,7 @@ const projects = [
   {
     title: 'Voxelpop',
     description: 'Voxelpop was a mobile game studio focused on strategy games for female players. We developed Goblin Quest, a highly approachable strategy game that was tested in the UK & US on Android devices.',
-    image: '/goblin village.png',
+    image: '/lovable-uploads/goblin-village.png', // Updated path
     highlights: [
       'Raised angel investment from notable game investors',
       'Assembled a founding team with 60+ years combined experience',
@@ -18,7 +18,7 @@ const projects = [
   {
     title: 'Dream Space',
     description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game. Built the concept and team from scratch.',
-    image: '/Screenshot 2025-04-30 at 19.23.45.png',
+    image: '/lovable-uploads/dream-space.png', // Updated path
     highlights: [
       'Assembled senior dev team within weeks',
       'Designed the prototype',
@@ -30,7 +30,7 @@ const projects = [
   {
     title: 'Skunkworks',
     description: 'Founded in 2019, Skunkworks focused on merge games for the casual market. Our hit game Merge Friends generated more than €4.5m in lifetime revenue.',
-    image: '/Screenshot 2025-04-30 at 19.28.23.png',
+    image: '/lovable-uploads/skunkworks.png', // Updated path
     highlights: [
       'Raised €5.8m in VC and government funding',
       'Grew team to 34 people',
@@ -42,7 +42,7 @@ const projects = [
   {
     title: 'Get Lost',
     description: 'Get Lost is about creating a space where books and the people who love them take centre stage. A place where creators, readers, and communities can connect over stories and move away from the algorithms that dictate so much of our time online.',
-    image: '/Screenshot 2025-04-30 at 19.39.39.png',
+    image: '/lovable-uploads/get-lost.png', // Updated path
     highlights: [
       'Assembled world class development team',
       'Designed the prototype',
