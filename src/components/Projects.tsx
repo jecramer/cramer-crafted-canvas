@@ -7,12 +7,12 @@ import { toast } from "@/components/ui/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 
-// Project data with updated image paths that should work correctly
+// Project data with correct image paths from public directory
 const projects = [
   {
     title: 'Voxelpop',
     description: 'Voxelpop was a mobile game studio focused on strategy games for female players. We developed Goblin Quest, a highly approachable strategy game that was tested in the UK & US on Android devices.',
-    image: '/placeholder.svg', // Fallback to placeholder
+    image: '/goblin village.png',
     highlights: [
       'Raised angel investment from notable game investors',
       'Assembled a founding team with 60+ years combined experience',
@@ -23,7 +23,7 @@ const projects = [
   {
     title: 'Dream Space',
     description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game. Built the concept and team from scratch.',
-    image: '/placeholder.svg', // Fallback to placeholder
+    image: '/Screenshot 2025-04-30 at 19.23.45.png',
     highlights: [
       'Assembled senior dev team within weeks',
       'Designed the prototype',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Skunkworks',
     description: 'Founded in 2019, Skunkworks focused on merge games for the casual market. Our hit game Merge Friends generated more than €4.5m in lifetime revenue.',
-    image: '/placeholder.svg', // Fallback to placeholder
+    image: '/Screenshot 2025-04-30 at 19.28.23.png',
     highlights: [
       'Raised €5.8m in VC and government funding',
       'Grew team to 34 people',
@@ -47,7 +47,7 @@ const projects = [
   {
     title: 'Get Lost',
     description: 'Get Lost is about creating a space where books and the people who love them take centre stage. A place where creators, readers, and communities can connect over stories and move away from the algorithms that dictate so much of our time online.',
-    image: '/placeholder.svg', // Fallback to placeholder
+    image: '/Screenshot 2025-04-30 at 19.39.39.png',
     highlights: [
       'Assembled world class development team',
       'Designed the prototype',
@@ -58,32 +58,41 @@ const projects = [
 ];
 
 const Projects = () => {
-  // Track image loading state
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
   const [erroredImages, setErroredImages] = useState<Record<number, boolean>>({});
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
-
-  // Set all images as loaded initially since we're using placeholders
+  
+  // Try to load all images when component mounts
   useEffect(() => {
-    const initialLoadState = projects.reduce((acc, _, index) => {
-      acc[index] = true;
-      return acc;
-    }, {} as Record<number, boolean>);
-    
-    setLoadedImages(initialLoadState);
+    projects.forEach((project, index) => {
+      const img = new Image();
+      img.src = project.image;
+      
+      img.onload = () => {
+        setLoadedImages(prev => ({
+          ...prev,
+          [index]: true
+        }));
+      };
+      
+      img.onerror = () => {
+        console.error(`Failed to load image: ${project.image}`);
+        setErroredImages(prev => ({
+          ...prev,
+          [index]: true
+        }));
+        // Set as loaded but with placeholder
+        setLoadedImages(prev => ({
+          ...prev,
+          [index]: true
+        }));
+      };
+    });
   }, []);
-
-  const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => ({
-      ...prev,
-      [index]: true
-    }));
-  };
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => {
     console.error(`Failed to load image at index ${index}:`, e.currentTarget.src);
     
-    // Set image to placeholder on error
+    // Use placeholder on error
     e.currentTarget.src = "/placeholder.svg";
     
     setLoadedImages(prev => ({
@@ -95,6 +104,12 @@ const Projects = () => {
       ...prev,
       [index]: true
     }));
+    
+    toast({
+      title: "Image failed to load",
+      description: `Using placeholder for ${projects[index].title} project`,
+      variant: "destructive",
+    });
   };
 
   return (
@@ -107,6 +122,16 @@ const Projects = () => {
             A showcase of my major ventures and projects
           </p>
         </div>
+        
+        {Object.keys(erroredImages).length > 0 && (
+          <Alert variant="destructive" className="mb-8">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Image Loading Issue</AlertTitle>
+            <AlertDescription>
+              Some project images couldn't be loaded. Placeholder images are being displayed instead.
+            </AlertDescription>
+          </Alert>
+        )}
         
         <div className="space-y-20">
           {projects.map((project, index) => (
@@ -121,7 +146,6 @@ const Projects = () => {
                       src={project.image} 
                       alt={project.title} 
                       className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
-                      onLoad={() => handleImageLoad(index)} 
                       onError={(e) => handleImageError(e, index)}
                     />
                   </AspectRatio>
