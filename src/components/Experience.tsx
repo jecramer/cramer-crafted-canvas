@@ -8,7 +8,7 @@ const experiences = [{
 }, {
   company: 'Voxelpop',
   role: 'Founder & CEO',
-  period: 'Dec 2022 - Dec 2024',
+  period: 'Dec 2022 - Nov 2024',
   description: 'Founded Voxelpop based on extensive market research that revealed an underserved market segment of female players in the mobile strategy game segment. Raised angel investment from notable game investors and Business Finland.'
 }, {
   company: 'Dream Space',
@@ -27,24 +27,24 @@ const experiences = [{
   description: 'Provided strategic consulting for various mobile game projects including Top Gear mobile game, Rocket League mobile game, and various hyper casual publishers.'
 }, {
   company: 'Armada Interactive',
-  role: 'Product Lead',
+  role: 'Head of Marketing',
   period: 'Aug 2016 - Jan 2018',
-  description: 'Led product development for a competitive mobile game with focus on PVP gameplay and monetization.'
+  description: 'Co-led development of marketing channels and multivariate testing process for thematic development.'
 }, {
   company: 'Next Games',
-  role: 'Product Lead',
+  role: 'Community & Marketing Manager',
   period: 'Sep 2014 - Aug 2016',
-  description: 'Launched The Walking Dead: No Man\'s Land, which became one of the most successful licensed mobile games.'
+  description: 'Developed creator strategy around liveops process.'
 }, {
   company: 'Grand Cru Games',
-  role: 'Product Manager',
+  role: 'Head of Support & Community',
   period: 'Sep 2013 - Sep 2014',
-  description: 'Managed product development for mobile games with focus on retention and monetization.'
+  description: 'Built support and community functions for Supernauts from scratch.'
 }, {
   company: 'Supercell',
-  role: 'Community Manager',
+  role: 'Customer Support',
   period: 'Jan 2013 - Sep 2013',
-  description: 'Started career in gaming at Supercell, working on community management for Clash of Clans during its early growth phase.'
+  description: 'Started career in gaming at Supercell, working on customer support for Clash of Clans and Hay Day during their early growth phase.'
 }];
 const Experience = () => {
   return <section id="experience" className="section bg-gray-50">
