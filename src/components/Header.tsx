@@ -35,7 +35,7 @@ const Header = () => {
       }`}
     >
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="text-xl font-bold">
+        <a href="#" className="text-xl font-bold text-white">
           James Cramer
         </a>
 
@@ -45,7 +45,7 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium transition-colors hover:text-amber"
+              className="text-sm font-medium transition-colors hover:text-amber text-white"
             >
               {link.name}
             </a>
@@ -56,7 +56,7 @@ const Header = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="md:hidden"
+          className="md:hidden text-white"
           onClick={toggleMenu}
         >
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
