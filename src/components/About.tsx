@@ -1,3 +1,4 @@
+
 const About = () => {
   return <section id="about" className="section bg-white">
       <div className="container-custom">
@@ -10,7 +11,7 @@ const About = () => {
           <div className="space-y-6">
             <p className="text-lg">I have more than 12 years experience in the startups and the mobile game industry, having worked on popular titles such as Clash of Clans and The Walking Dead: No Man's Land, and founded three companies during that time.</p>
             <p className="text-lg">I started my career in gaming at Supercell in 2012 and advanced through the ranks at several gaming startups before founding my first game studio, Skunkworks, in 2019.</p>
-            <p className="text-lg">Currently, I am working on a new company, Get Lost which is focused on a major growth opportunity in the book publishing space.</p>
+            <p className="text-lg">Currently, I am working on my new company, Get Lost which is focused on creating a space where books and the people who love them take centre stage.</p>
           </div>
           
           <div className="space-y-6">

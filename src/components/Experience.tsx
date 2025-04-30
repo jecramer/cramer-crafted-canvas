@@ -1,8 +1,14 @@
+
 import { ArrowRight } from 'lucide-react';
 const experiences = [{
+  company: 'Get Lost',
+  role: 'Founder & CEO',
+  period: 'August 2024 - Present',
+  description: 'Get Lost is about creating a space where books and the people who love them take centre stage. A place where creators, readers, and communities can connect over stories and move away from the algorithms that dictate so much of our time online.'
+}, {
   company: 'Voxelpop',
   role: 'Founder & CEO',
-  period: 'Dec 2022 - Present',
+  period: 'Dec 2022 - Dec 2024',
   description: 'Founded Voxelpop based on extensive market research that revealed an underserved market segment of female players in the mobile strategy game segment. Raised angel investment from notable game investors and Business Finland.'
 }, {
   company: 'Dream Space',
