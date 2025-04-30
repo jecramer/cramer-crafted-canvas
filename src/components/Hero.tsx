@@ -1,10 +1,7 @@
-
 import { ArrowDown, Linkedin, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const Hero = () => {
-  return (
-    <section className="min-h-screen flex items-center pt-16 relative bg-[url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05')] bg-cover bg-center">
+  return <section className="min-h-screen flex items-center pt-16 relative bg-[url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05')] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/70"></div>
       <div className="container-custom relative z-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -30,24 +27,13 @@ const Hero = () => {
             </div>
             
             <div className="flex space-x-4 pt-2">
-              <a 
-                href="https://www.linkedin.com/in/james-cramer/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:text-amber transition-colors"
-              >
+              <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a 
-                href="mailto:james.cramer@gmail.com" 
-                className="text-white hover:text-amber transition-colors"
-              >
+              <a href="mailto:james.cramer@gmail.com" className="text-white hover:text-amber transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
-              <a 
-                href="tel:+35844715487" 
-                className="text-white hover:text-amber transition-colors"
-              >
+              <a href="tel:+35844715487" className="text-white hover:text-amber transition-colors">
                 <Phone className="h-6 w-6" />
               </a>
             </div>
@@ -56,12 +42,12 @@ const Hero = () => {
           <div className="hidden lg:flex justify-end">
             <div className="flex flex-col gap-6 max-w-md">
               <div className="stat-card animate-fade-in bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <h3 className="text-3xl font-bold text-amber">11+</h3>
+                <h3 className="text-3xl font-bold text-amber">12+</h3>
                 <p className="text-sm mt-1">Years Experience</p>
               </div>
               <div className="stat-card animate-fade-in bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <h3 className="text-3xl font-bold text-amber">2</h3>
-                <p className="text-sm mt-1">Studios Founded</p>
+                <h3 className="text-3xl font-bold text-amber">3</h3>
+                <p className="text-sm mt-1">Companies Founded</p>
               </div>
               <div className="stat-card animate-fade-in bg-white/10 backdrop-blur-sm border-white/20 text-white">
                 <h3 className="text-3xl font-bold text-amber">€5.8m</h3>
@@ -77,8 +63,6 @@ const Hero = () => {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
