@@ -1,9 +1,11 @@
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 const projects = [
   {
@@ -57,6 +59,17 @@ const projects = [
 const Projects = () => {
   // Track image loading state
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+  const [erroredImages, setErroredImages] = useState<Record<number, boolean>>({});
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+
+  useEffect(() => {
+    // Check if all images failed to load
+    const allImagesFailed = projects.every((_, index) => erroredImages[index]);
+    
+    if (Object.keys(erroredImages).length > 0 && !showErrorMessage) {
+      setShowErrorMessage(true);
+    }
+  }, [erroredImages, showErrorMessage]);
 
   const handleImageLoad = (index: number) => {
     setLoadedImages(prev => ({
@@ -67,19 +80,19 @@ const Projects = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => {
     console.error(`Failed to load image at index ${index}:`, e.currentTarget.src);
+    
     // Set image to placeholder on error
     e.currentTarget.src = "/placeholder.svg";
+    
     setLoadedImages(prev => ({
       ...prev,
       [index]: true
     }));
     
-    // Show a toast notification about the error
-    toast({
-      title: "Image could not be loaded",
-      description: "Using a placeholder image instead",
-      variant: "destructive",
-    });
+    setErroredImages(prev => ({
+      ...prev,
+      [index]: true
+    }));
   };
 
   return (
@@ -92,6 +105,16 @@ const Projects = () => {
             A showcase of my major ventures and projects
           </p>
         </div>
+        
+        {showErrorMessage && (
+          <Alert variant="destructive" className="mb-8">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Image Loading Issue</AlertTitle>
+            <AlertDescription>
+              Some project images couldn't be loaded. Placeholder images are being displayed instead.
+            </AlertDescription>
+          </Alert>
+        )}
         
         <div className="space-y-20">
           {projects.map((project, index) => (
