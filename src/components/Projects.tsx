@@ -13,8 +13,8 @@ const projects = [
   },
   {
     title: 'Dream Space',
-    description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game.',
-    image: '/lovable-uploads/ef7843a8-965f-47ea-97b5-872ce197e28e.png',
+    description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game. Built the concept and team from scratch.',
+    image: '/lovable-uploads/b757f891-fc0d-40a7-bc3e-7658d1d12e90.png',
     highlights: [
       'Assembled senior dev team within weeks',
       'Designed the prototype',
