@@ -1,11 +1,7 @@
-
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-gray-900 text-white py-12">
+  return <footer className="bg-gray-900 text-white py-12">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -14,29 +10,13 @@ const Footer = () => {
               Product leader & growth strategist specializing in mobile gaming
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/in/james-cramer/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-amber transition-colors"
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a 
-                href="mailto:james.cramer@gmail.com" 
-                className="text-gray-400 hover:text-amber transition-colors"
-                aria-label="Email"
-              >
+              <a href="mailto:james.cramer@gmail.com" className="text-gray-400 hover:text-amber transition-colors" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
-              <a 
-                href="https://twitter.com/itsjamescramer" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-amber transition-colors"
-                aria-label="Twitter"
-              >
+              <a href="https://twitter.com/itsjamescramer" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber transition-colors" aria-label="Twitter">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -78,13 +58,8 @@ const Footer = () => {
             <p className="text-gray-400 mb-2">
               Email: james.cramer@gmail.com
             </p>
-            <p className="text-gray-400 mb-4">
-              Phone: +358 44 7154 587
-            </p>
-            <a 
-              href="#contact" 
-              className="inline-block px-4 py-2 bg-amber text-black font-medium rounded-md hover:bg-amber/90 transition-colors"
-            >
+            <p className="text-gray-400 mb-4">Phone: +358 ** **** *** (Ask!)</p>
+            <a href="#contact" className="inline-block px-4 py-2 bg-amber text-black font-medium rounded-md hover:bg-amber/90 transition-colors">
               Contact Me
             </a>
           </div>
@@ -99,8 +74,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
