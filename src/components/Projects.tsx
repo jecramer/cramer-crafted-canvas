@@ -3,7 +3,7 @@ const projects = [
   {
     title: 'Voxelpop',
     description: 'Voxelpop was a mobile game studio focused on strategy games for female players. We developed Goblin Quest, a highly approachable strategy game that was tested in the UK & US on Android devices.',
-    image: '/lovable-uploads/9876af12-3760-442e-97cf-9979b7dd04fa.png',
+    image: '/goblin village.png',
     highlights: [
       'Raised angel investment from notable game investors',
       'Assembled a founding team with 60+ years combined experience',
