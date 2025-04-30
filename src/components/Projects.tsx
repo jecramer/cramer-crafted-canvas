@@ -34,6 +34,17 @@ const projects = [
       'Created company strategy focused on market research',
       'Developed rapid prototyping process'
     ]
+  },
+  {
+    title: 'Get Lost',
+    description: 'Get Lost is about creating a space where books and the people who love them take centre stage. A place where creators, readers, and communities can connect over stories and move away from the algorithms that dictate so much of our time online.',
+    image: '/Screenshot 2025-04-30 at 19.39.39.png',
+    highlights: [
+      'Assembled world class development team',
+      'Designed the prototype',
+      'Created company strategy and vision',
+      'Working on a fundraise'
+    ]
   }
 ];
 
