@@ -1,4 +1,3 @@
-
 import { ArrowDown, Linkedin, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const Hero = () => {
@@ -10,9 +9,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
               James <span className="text-amber">Cramer</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90">
-              Product leader & growth strategist with over a decade in mobile gaming
-            </p>
+            <p className="text-xl md:text-2xl text-white/90">Product leader, growth strategist & repeat entrepreneur with over a decade of building.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button className="btn-amber group" asChild>
