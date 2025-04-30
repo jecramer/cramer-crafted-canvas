@@ -1,5 +1,7 @@
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useState } from "react";
 
 const projects = [
   {
@@ -51,6 +53,26 @@ const projects = [
 ];
 
 const Projects = () => {
+  // Track image loading state
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => ({
+      ...prev,
+      [index]: true
+    }));
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => {
+    console.error(`Failed to load image at index ${index}:`, e.currentTarget.src);
+    // Set image to placeholder on error
+    e.currentTarget.src = "/placeholder.svg";
+    setLoadedImages(prev => ({
+      ...prev,
+      [index]: true
+    }));
+  };
+
   return (
     <section id="projects" className="section bg-white">
       <div className="container-custom">
@@ -68,14 +90,15 @@ const Projects = () => {
               <div className={`${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                 <div className="w-full overflow-hidden rounded-xl shadow-md">
                   <AspectRatio ratio={16/9} className="bg-muted">
+                    {!loadedImages[index] && (
+                      <Skeleton className="w-full h-full absolute" />
+                    )}
                     <img 
                       src={project.image} 
                       alt={project.title} 
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        console.error(`Failed to load image: ${project.image}`);
-                        e.currentTarget.src = "/placeholder.svg";
-                      }}
+                      className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
+                      onLoad={() => handleImageLoad(index)} 
+                      onError={(e) => handleImageError(e, index)}
                     />
                   </AspectRatio>
                 </div>
