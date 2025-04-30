@@ -1,3 +1,4 @@
+
 import { ArrowDown, Linkedin, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const Hero = () => {
@@ -19,9 +20,9 @@ const Hero = () => {
                   Get in touch
                 </a>
               </Button>
-              <Button variant="outline" className="text-white border-white hover:bg-white/10" asChild>
+              <Button className="bg-white/10 text-white hover:bg-white/20 border border-white/20" asChild>
                 <a href="#experience">
-                  View experience
+                  View my experience
                 </a>
               </Button>
             </div>
