@@ -7,12 +7,12 @@ import { toast } from "@/components/ui/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 
-// Updated project data with correct image paths
+// Project data with updated image paths that should work correctly
 const projects = [
   {
     title: 'Voxelpop',
     description: 'Voxelpop was a mobile game studio focused on strategy games for female players. We developed Goblin Quest, a highly approachable strategy game that was tested in the UK & US on Android devices.',
-    image: '/lovable-uploads/5f146cad-ae01-42c3-b39e-dc4de13b70f0.png', 
+    image: '/placeholder.svg', // Fallback to placeholder
     highlights: [
       'Raised angel investment from notable game investors',
       'Assembled a founding team with 60+ years combined experience',
@@ -23,7 +23,7 @@ const projects = [
   {
     title: 'Dream Space',
     description: 'An upcoming home design game that incorporates real life designer furniture into a seamless and highly approachable 3D design game. Built the concept and team from scratch.',
-    image: '/lovable-uploads/f022e33b-e809-417e-85ec-a3e3b7a64b0c.png',
+    image: '/placeholder.svg', // Fallback to placeholder
     highlights: [
       'Assembled senior dev team within weeks',
       'Designed the prototype',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Skunkworks',
     description: 'Founded in 2019, Skunkworks focused on merge games for the casual market. Our hit game Merge Friends generated more than €4.5m in lifetime revenue.',
-    image: '/lovable-uploads/f19782fb-9131-44e9-9436-9da70295eed3.png',
+    image: '/placeholder.svg', // Fallback to placeholder
     highlights: [
       'Raised €5.8m in VC and government funding',
       'Grew team to 34 people',
@@ -47,7 +47,7 @@ const projects = [
   {
     title: 'Get Lost',
     description: 'Get Lost is about creating a space where books and the people who love them take centre stage. A place where creators, readers, and communities can connect over stories and move away from the algorithms that dictate so much of our time online.',
-    image: '/lovable-uploads/8b432366-821f-42be-9731-9db75113ab10.png',
+    image: '/placeholder.svg', // Fallback to placeholder
     highlights: [
       'Assembled world class development team',
       'Designed the prototype',
@@ -63,24 +63,15 @@ const Projects = () => {
   const [erroredImages, setErroredImages] = useState<Record<number, boolean>>({});
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-  // Preload images to check if they're valid
+  // Set all images as loaded initially since we're using placeholders
   useEffect(() => {
-    projects.forEach((project, index) => {
-      const img = new Image();
-      img.src = project.image;
-      img.onload = () => handleImageLoad(index);
-      img.onerror = () => {
-        console.error(`Failed to preload image: ${project.image}`);
-        handleImageError({ currentTarget: img } as React.SyntheticEvent<HTMLImageElement, Event>, index);
-      };
-    });
+    const initialLoadState = projects.reduce((acc, _, index) => {
+      acc[index] = true;
+      return acc;
+    }, {} as Record<number, boolean>);
+    
+    setLoadedImages(initialLoadState);
   }, []);
-
-  useEffect(() => {
-    if (Object.keys(erroredImages).length > 0 && !showErrorMessage) {
-      setShowErrorMessage(true);
-    }
-  }, [erroredImages, showErrorMessage]);
 
   const handleImageLoad = (index: number) => {
     setLoadedImages(prev => ({
@@ -116,16 +107,6 @@ const Projects = () => {
             A showcase of my major ventures and projects
           </p>
         </div>
-        
-        {showErrorMessage && (
-          <Alert variant="destructive" className="mb-8">
-            <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Image Loading Issue</AlertTitle>
-            <AlertDescription>
-              Some project images couldn't be loaded. Placeholder images are being displayed instead.
-            </AlertDescription>
-          </Alert>
-        )}
         
         <div className="space-y-20">
           {projects.map((project, index) => (
