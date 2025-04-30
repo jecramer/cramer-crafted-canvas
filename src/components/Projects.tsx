@@ -7,6 +7,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 
+// Updated project data with correct image paths
 const projects = [
   {
     title: 'Voxelpop',
@@ -62,10 +63,20 @@ const Projects = () => {
   const [erroredImages, setErroredImages] = useState<Record<number, boolean>>({});
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
+  // Preload images to check if they're valid
   useEffect(() => {
-    // Check if all images failed to load
-    const allImagesFailed = projects.every((_, index) => erroredImages[index]);
-    
+    projects.forEach((project, index) => {
+      const img = new Image();
+      img.src = project.image;
+      img.onload = () => handleImageLoad(index);
+      img.onerror = () => {
+        console.error(`Failed to preload image: ${project.image}`);
+        handleImageError({ currentTarget: img } as React.SyntheticEvent<HTMLImageElement, Event>, index);
+      };
+    });
+  }, []);
+
+  useEffect(() => {
     if (Object.keys(erroredImages).length > 0 && !showErrorMessage) {
       setShowErrorMessage(true);
     }
