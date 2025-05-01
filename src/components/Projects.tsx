@@ -1,10 +1,11 @@
-import { AspectRatio } from \"@/components/ui/aspect-ratio\";
-import { Skeleton } from \"@/components/ui/skeleton\";
-import { useState, useEffect } from \"react\";
-import { Card } from \"@/components/ui/card\";
-import { toast } from \"@/components/ui/use-toast\";
-import { Alert, AlertTitle, AlertDescription } from \"@/components/ui/alert\";
-import { AlertCircle } from \"lucide-react\";
+
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useState, useEffect } from "react";
+import { Card } from "@/components/ui/card";
+import { toast } from "@/components/ui/use-toast";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 const projects = [
   {
@@ -72,28 +73,28 @@ const Projects = () => {
         setErroredImages(prev => ({ ...prev, [index]: true }));
         setLoadedImages(prev => ({ ...prev, [index]: true }));
         toast({
-          title: \"Image failed to load\",
+          title: "Image failed to load",
           description: `Using placeholder for ${project.title} project`,
-          variant: \"destructive\",
+          variant: "destructive",
         });
       };
     });
   }, []);
 
   return (
-    <section id=\"projects\" className=\"section bg-white\">
-      <div className=\"container-custom\">
-        <div className=\"max-w-3xl mx-auto text-center mb-12\">
-          <h2 className=\"mb-4\">Featured Projects</h2>
-          <div className=\"h-1 w-20 bg-amber mx-auto mb-8\"></div>
-          <p className=\"text-lg text-muted-foreground\">
+    <section id="projects" className="section bg-white">
+      <div className="container-custom">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <h2 className="mb-4">Featured Projects</h2>
+          <div className="h-1 w-20 bg-amber mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground">
             A showcase of my major ventures and projects
           </p>
         </div>
 
         {Object.keys(erroredImages).length > 0 && (
-          <Alert variant=\"destructive\" className=\"mb-8\">
-            <AlertCircle className=\"h-4 w-4\" />
+          <Alert variant="destructive" className="mb-8">
+            <AlertCircle className="h-4 w-4" />
             <AlertTitle>Image Loading Issue</AlertTitle>
             <AlertDescription>
               Some project images couldn't be loaded. Placeholder images are being displayed instead.
@@ -101,13 +102,13 @@ const Projects = () => {
           </Alert>
         )}
 
-        <div className=\"space-y-20\">
+        <div className="space-y-20">
           {projects.map((project, index) => (
-            <div key={index} className=\"grid md:grid-cols-2 gap-8 items-center\">
+            <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
               <div className={`${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                <Card className=\"overflow-hidden rounded-xl shadow-md\">
-                  <AspectRatio ratio={16 / 9} className=\"bg-muted\">
-                    {!loadedImages[index] && <Skeleton className=\"w-full h-full absolute\" />}
+                <Card className="overflow-hidden rounded-xl shadow-md">
+                  <AspectRatio ratio={16 / 9} className="bg-muted">
+                    {!loadedImages[index] && <Skeleton className="w-full h-full absolute" />}
                     <img
                       src={project.image}
                       alt={project.title}
@@ -117,15 +118,15 @@ const Projects = () => {
                 </Card>
               </div>
 
-              <div className=\"space-y-4\">
-                <h3 className=\"text-2xl font-bold\">{project.title}</h3>
-                <p className=\"text-lg\">{project.description}</p>
-                <div className=\"mt-6\">
-                  <h4 className=\"text-lg font-medium mb-3\">Key Achievements:</h4>
-                  <ul className=\"space-y-2\">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold">{project.title}</h3>
+                <p className="text-lg">{project.description}</p>
+                <div className="mt-6">
+                  <h4 className="text-lg font-medium mb-3">Key Achievements:</h4>
+                  <ul className="space-y-2">
                     {project.highlights.map((highlight, i) => (
-                      <li key={i} className=\"flex items-start\">
-                        <span className=\"text-amber mr-2\">→</span>
+                      <li key={i} className="flex items-start">
+                        <span className="text-amber mr-2">→</span>
                         <span>{highlight}</span>
                       </li>
                     ))}
