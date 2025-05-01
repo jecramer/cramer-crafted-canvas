@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
@@ -65,13 +65,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm">
+        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm">
           <nav className="flex flex-col space-y-4 p-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium p-2 hover:bg-muted rounded-md transition-colors"
+                className="text-base font-medium p-2 hover:bg-gray-800 text-white rounded-md transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
