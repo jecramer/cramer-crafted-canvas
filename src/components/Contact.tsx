@@ -1,8 +1,9 @@
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const Contact = () => {
@@ -27,19 +28,6 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create email content with form data
-    const subject = `Contact from ${formData.name}`;
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-
-Message:
-${formData.message}
-    `;
-    
-    // Open email client with pre-filled information
-    window.location.href = `mailto:james.cramer@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Show success toast
     toast({
@@ -71,30 +59,19 @@ ${formData.message}
             
             <div className="space-y-6">
               <div className="flex items-center">
-                <Mail className="h-6 w-6 mr-4 text-amber" />
-                <div>
-                  <div className="font-medium">Email</div>
-                  <a href="mailto:james.cramer@gmail.com" className="text-muted-foreground hover:text-amber transition-colors">
-                    james.cramer@gmail.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-center">
-                <Phone className="h-6 w-6 mr-4 text-amber" />
-                <div>
-                  <div className="font-medium">Phone</div>
-                  <a href="tel:+35844715487" className="text-muted-foreground hover:text-amber transition-colors">+358 ** **** *** (ask!)</a>
-                </div>
-              </div>
-              
-              <div className="flex items-center">
-                <Linkedin className="h-6 w-6 mr-4 text-amber" />
-                <div>
+                <div className="ml-10">
                   <div className="font-medium">LinkedIn</div>
-                  <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-amber transition-colors">
+                  <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-amber transition-colors flex items-center">
+                    <Linkedin className="h-5 w-5 mr-2" />
                     linkedin.com/in/james-cramer
                   </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="ml-10">
+                  <div className="font-medium">Phone</div>
+                  <span className="text-muted-foreground">+358 44 **** ***</span>
                 </div>
               </div>
             </div>

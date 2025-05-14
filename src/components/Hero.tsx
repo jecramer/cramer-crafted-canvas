@@ -1,4 +1,5 @@
-import { ArrowDown, Linkedin, Mail, Phone } from 'lucide-react';
+
+import { ArrowDown, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 const Hero = () => {
   return <section className="min-h-screen flex items-center pt-16 relative bg-[url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05')] bg-cover bg-center">
@@ -28,11 +29,10 @@ const Hero = () => {
               <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:james.cramer@gmail.com" className="text-white hover:text-amber transition-colors">
-                <Mail className="h-6 w-6" />
-              </a>
-              <a href="tel:+35844715487" className="text-white hover:text-amber transition-colors">
-                <Phone className="h-6 w-6" />
+              <a href="#contact" className="text-white hover:text-amber transition-colors">
+                <Button variant="ghost" className="p-0 h-auto text-white hover:text-amber hover:bg-transparent">
+                  Contact Me
+                </Button>
               </a>
             </div>
           </div>

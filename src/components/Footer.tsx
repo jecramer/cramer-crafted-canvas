@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+
+import { Github, Linkedin, Twitter } from 'lucide-react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-gray-900 text-white py-12">
@@ -13,8 +14,8 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/james-cramer/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="mailto:james.cramer@gmail.com" className="text-gray-400 hover:text-amber transition-colors" aria-label="Email">
-                <Mail className="h-5 w-5" />
+              <a href="#contact" className="text-gray-400 hover:text-amber transition-colors" aria-label="Contact">
+                <span className="text-sm">Contact Me</span>
               </a>
               <a href="https://twitter.com/itsjamescramer" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber transition-colors" aria-label="Twitter">
                 <Twitter className="h-5 w-5" />
@@ -56,9 +57,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
             <p className="text-gray-400 mb-2">
-              Email: james.cramer@gmail.com
+              Contact via the form below
             </p>
-            <p className="text-gray-400 mb-4">Phone: +358 ** **** *** (Ask!)</p>
+            <p className="text-gray-400 mb-4">Phone: +358 44 **** ***</p>
             <a href="#contact" className="inline-block px-4 py-2 bg-amber text-black font-medium rounded-md hover:bg-amber/90 transition-colors">
               Contact Me
             </a>
